@@ -9,6 +9,7 @@ import java.util.List;
 @RequestMapping("recycling")
 public class RecyclingProgramController {
     @Autowired
+
     private RecyclingProgramService recyclingProgramService;
 
     @GetMapping

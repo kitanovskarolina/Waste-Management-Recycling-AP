@@ -35,4 +35,5 @@ public class WasteCollectionRouteController {
     public void delete(@PathVariable("id") Long id) {
         wasteCollectionRouteService.delete(id);
     }
+
 }
