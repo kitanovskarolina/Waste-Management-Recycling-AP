@@ -6,10 +6,7 @@ This API allows city residents to manage municipal waste collection and recyclin
 
 ## Base URL
 
-http://localhost:9090/api
-
-bash
-Copy code
+http://localhost:9090
 
 ## Endpoints
 
@@ -27,7 +24,7 @@ Copy code
 
 **Request Body:**
 
-```json
+
 {
   "routeName": "Downtown Route",
   "schedule": "Every Monday at 6:00 AM",
@@ -36,7 +33,7 @@ Copy code
 Responses:
 
 201 Created:
-json
+
 {
   "id": 1,
   "routeName": "Downtown Route",
@@ -57,7 +54,7 @@ Accept: application/json
 Responses:
 
 200 OK:
-json
+
 [
   {
     "id": 1,
@@ -89,7 +86,7 @@ id (integer): ID of the waste collection route
 Responses:
 
 200 OK:
-json
+
 {
   "id": 1,
   "routeName": "Downtown Route",
@@ -112,7 +109,7 @@ Path Parameters:
 id (integer): ID of the waste collection route
 Request Body:
 
-json
+
 {
   "routeName": "Updated Route Name",
   "schedule": "Updated Schedule",
@@ -121,7 +118,7 @@ json
 Responses:
 
 200 OK:
-json
+
 {
   "id": 1,
   "routeName": "Updated Route Name",
@@ -159,7 +156,7 @@ Request Headers:
 Content-Type: application/json
 Request Body:
 
-json
+
 {
   "programName": "Paper Recycling",
   "description": "Collect and recycle paper products."
@@ -167,7 +164,7 @@ json
 Responses:
 
 201 Created:
-json
+
 {
   "id": 1,
   "programName": "Paper Recycling",
@@ -187,7 +184,7 @@ Accept: application/json
 Responses:
 
 200 OK:
-json
+
 [
   {
     "id": 1,
@@ -217,7 +214,7 @@ id (integer): ID of the recycling program
 Responses:
 
 200 OK:
-json
+
 {
   "id": 1,
   "programName": "Paper Recycling",
@@ -239,7 +236,7 @@ Path Parameters:
 id (integer): ID of the recycling program
 Request Body:
 
-json
+
 {
   "programName": "Updated Program Name",
   "description": "Updated Description"
@@ -247,7 +244,7 @@ json
 Responses:
 
 200 OK:
-json
+
 {
   "id": 1,
   "programName": "Updated Program Name",
