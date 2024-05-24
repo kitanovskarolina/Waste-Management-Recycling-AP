@@ -6,7 +6,7 @@ This API allows city residents to manage municipal waste collection and recyclin
 
 ## Base URL
 
-http://localhost:9090/api
+http://localhost:9090
 
 ## Endpoints
 
