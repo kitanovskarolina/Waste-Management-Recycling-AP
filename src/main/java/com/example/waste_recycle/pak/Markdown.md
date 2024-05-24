@@ -24,12 +24,12 @@ http://localhost:9090
 
 **Request Body:**
 
-```json
 {
   "routeName": "Downtown Route",
   "schedule": "Every Monday at 6:00 AM",
   "wasteType": "General Waste"
 }
+
 Responses:
 
 201 Created:
