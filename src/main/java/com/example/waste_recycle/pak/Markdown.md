@@ -22,7 +22,6 @@ http://localhost:9090/api
 
 **Request Headers:**
 
-- `Content-Type: application/json`
 
 **Request Body:**
 
