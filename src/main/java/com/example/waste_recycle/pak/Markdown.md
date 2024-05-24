@@ -4,7 +4,7 @@
 This API allows city residents to manage municipal waste collection and recycling services, including schedules, types of waste collected, and community participation programs. It facilitates communication between residents and city departments, enabling efficient waste management and recycling program tracking.
 
 ## Base URL
-`http://localhost:9090/api`
+`http://localhost:9090`
 
 ## Endpoints
 
