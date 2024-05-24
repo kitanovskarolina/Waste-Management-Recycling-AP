@@ -25,7 +25,7 @@ http://localhost:9090/api
 
 **Request Body:**
 
-```json
+``json
 {
   "routeName": "Downtown Route",
   "schedule": "Every Monday at 6:00 AM",
