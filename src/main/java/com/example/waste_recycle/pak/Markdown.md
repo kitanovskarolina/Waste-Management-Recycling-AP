@@ -282,9 +282,6 @@ Responses:
 404 Not Found: Program not found
 
 
-This Markdown file documents the API endpoints for managing waste collection routes and recycling programs, based on your Java classes and their respective methods.
-
-
 
 
 
