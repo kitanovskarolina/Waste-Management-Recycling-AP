@@ -1,278 +1,317 @@
 # Waste Collection and Recycling Services API
 
 ## Introduction
-
 This API allows city residents to manage municipal waste collection and recycling services, including schedules, types of waste collected, and community participation programs. It facilitates communication between residents and city departments, enabling efficient waste management and recycling program tracking.
 
 ## Base URL
-
-http://localhost:9090/api
-
-
+`http://localhost:9090/api`
 
 ## Endpoints
 
 ### 1. Create a New Waste Collection Route
 
-**HTTP Method:** POST
+**HTTP Method:** `POST`
 
 **Endpoint:** `/waste`
 
 **Description:** Schedule new waste collection routes.
 
 **Request Headers:**
-
+- `Content-Type: application/json`
 
 **Request Body:**
-
 ```json
 {
   "routeName": "Downtown Route",
   "schedule": "Every Monday at 6:00 AM",
   "wasteType": "General Waste"
 }
-Responses:
+```
 
-201 Created:
-json
+**Responses:**
 
-{
-  "id": 1,
-  "routeName": "Downtown Route",
-  "schedule": "Every Monday at 6:00 AM",
-  "wasteType": "General Waste"
-}
-400 Bad Request: Invalid input
-2. View Current Waste Collection Routes
-HTTP Method: GET
-
-Endpoint: /waste
-
-Description: View the current waste collection routes.
-
-Request Headers:
-
-Accept: application/json
-Responses:
-
-200 OK:
-json
-
-[
+- **201 Created:**
+  ```json
   {
     "id": 1,
     "routeName": "Downtown Route",
     "schedule": "Every Monday at 6:00 AM",
     "wasteType": "General Waste"
-  },
-  {
-    "id": 2,
-    "routeName": "Uptown Route",
-    "schedule": "Every Wednesday at 7:00 AM",
-    "wasteType": "Recyclable Waste"
   }
-]
-204 No Content: No routes found
-3. Retrieve a Single Waste Collection Route
-HTTP Method: GET
+  ```
+- **400 Bad Request:** Invalid input
 
-Endpoint: /waste/{id}
+---
 
-Description: Retrieve details of a single waste collection route by its ID.
+### 2. View Current Waste Collection Routes
 
-Request Headers:
+**HTTP Method:** `GET`
 
-Accept: application/json
-Path Parameters:
+**Endpoint:** `/waste`
 
-id (integer): ID of the waste collection route
-Responses:
+**Description:** View the current waste collection routes.
 
-200 OK:
-json
+**Request Headers:**
+- `Accept: application/json`
 
-{
-  "id": 1,
-  "routeName": "Downtown Route",
-  "schedule": "Every Monday at 6:00 AM",
-  "wasteType": "General Waste"
-}
-404 Not Found: Route not found
-4. Update Waste Collection Route
-HTTP Method: PUT
+**Responses:**
 
-Endpoint: /waste/{id}
+- **200 OK:**
+  ```json
+  [
+    {
+      "id": 1,
+      "routeName": "Downtown Route",
+      "schedule": "Every Monday at 6:00 AM",
+      "wasteType": "General Waste"
+    },
+    {
+      "id": 2,
+      "routeName": "Uptown Route",
+      "schedule": "Every Wednesday at 7:00 AM",
+      "wasteType": "Recyclable Waste"
+    }
+  ]
+  ```
+- **204 No Content:** No routes found
 
-Description: Update the details of a waste collection route.
+---
 
-Request Headers:
+### 3. Retrieve a Single Waste Collection Route
 
-Content-Type: application/json
-Path Parameters:
+**HTTP Method:** `GET`
 
-id (integer): ID of the waste collection route
-Request Body:
+**Endpoint:** `/waste/{id}`
 
-json
+**Description:** Retrieve details of a single waste collection route by its ID.
 
+**Request Headers:**
+- `Accept: application/json`
+
+**Path Parameters:**
+- `id` (integer): ID of the waste collection route
+
+**Responses:**
+
+- **200 OK:**
+  ```json
+  {
+    "id": 1,
+    "routeName": "Downtown Route",
+    "schedule": "Every Monday at 6:00 AM",
+    "wasteType": "General Waste"
+  }
+  ```
+- **404 Not Found:** Route not found
+
+---
+
+### 4. Update Waste Collection Route
+
+**HTTP Method:** `PUT`
+
+**Endpoint:** `/waste/{id}`
+
+**Description:** Update the details of a waste collection route.
+
+**Request Headers:**
+- `Content-Type: application/json`
+
+**Path Parameters:**
+- `id` (integer): ID of the waste collection route
+
+**Request Body:**
+```json
 {
   "routeName": "Updated Route Name",
   "schedule": "Updated Schedule",
   "wasteType": "Updated Waste Type"
 }
-Responses:
+```
 
-200 OK:
-json
+**Responses:**
 
-{
-  "id": 1,
-  "routeName": "Updated Route Name",
-  "schedule": "Updated Schedule",
-  "wasteType": "Updated Waste Type"
-}
-400 Bad Request: Invalid input
-404 Not Found: Route not found
-5. Delete a Waste Collection Route
-HTTP Method: DELETE
+- **200 OK:**
+  ```json
+  {
+    "id": 1,
+    "routeName": "Updated Route Name",
+    "schedule": "Updated Schedule",
+    "wasteType": "Updated Waste Type"
+  }
+  ```
+- **400 Bad Request:** Invalid input
+- **404 Not Found:** Route not found
 
-Endpoint: /waste/{id}
+---
 
-Description: Delete a waste collection route by its ID.
+### 5. Delete a Waste Collection Route
 
-Request Headers:
+**HTTP Method:** `DELETE`
 
-Accept: application/json
-Path Parameters:
+**Endpoint:** `/waste/{id}`
 
-id (integer): ID of the waste collection route
-Responses:
+**Description:** Delete a waste collection route by its ID.
 
-204 No Content: Successfully deleted
-404 Not Found: Route not found
-6. Create a New Recycling Program
-HTTP Method: POST
+**Request Headers:**
+- `Accept: application/json`
 
-Endpoint: /recycling
+**Path Parameters:**
+- `id` (integer): ID of the waste collection route
 
-Description: Create a new recycling program.
+**Responses:**
 
-Request Headers:
+- **204 No Content:** Successfully deleted
+- **404 Not Found:** Route not found
 
-Content-Type: application/json
-Request Body:
+---
 
-json
+### 6. Create a New Recycling Program
 
+**HTTP Method:** `POST`
+
+**Endpoint:** `/recycling`
+
+**Description:** Create a new recycling program.
+
+**Request Headers:**
+- `Content-Type: application/json`
+
+**Request Body:**
+```json
 {
   "programName": "Paper Recycling",
   "description": "Collect and recycle paper products."
 }
-Responses:
+```
 
-201 Created:
-json
-{
-  "id": 1,
-  "programName": "Paper Recycling",
-  "description": "Collect and recycle paper products."
-}
-400 Bad Request: Invalid input
-7. View Current Recycling Programs
-HTTP Method: GET
+**Responses:**
 
-Endpoint: /recycling
-
-Description: View the current recycling programs.
-
-Request Headers:
-
-Accept: application/json
-Responses:
-
-200 OK:
-json
-[
+- **201 Created:**
+  ```json
   {
     "id": 1,
     "programName": "Paper Recycling",
     "description": "Collect and recycle paper products."
-  },
-  {
-    "id": 2,
-    "programName": "Plastic Recycling",
-    "description": "Collect and recycle plastic products."
   }
-]
-204 No Content: No programs found
-8. Retrieve a Single Recycling Program
-HTTP Method: GET
+  ```
+- **400 Bad Request:** Invalid input
 
-Endpoint: /recycling/{id}
+---
 
-Description: Retrieve details of a single recycling program by its ID.
+### 7. View Current Recycling Programs
 
-Request Headers:
+**HTTP Method:** `GET`
 
-Accept: application/json
-Path Parameters:
+**Endpoint:** `/recycling`
 
-id (integer): ID of the recycling program
-Responses:
+**Description:** View the current recycling programs.
 
-200 OK:
-json
-{
-  "id": 1,
-  "programName": "Paper Recycling",
-  "description": "Collect and recycle paper products."
-}
-404 Not Found: Program not found
-9. Update a Recycling Program
-HTTP Method: PUT
+**Request Headers:**
+- `Accept: application/json`
 
-Endpoint: /recycling/{id}
+**Responses:**
 
-Description: Update the details of a recycling program.
+- **200 OK:**
+  ```json
+  [
+    {
+      "id": 1,
+      "programName": "Paper Recycling",
+      "description": "Collect and recycle paper products."
+    },
+    {
+      "id": 2,
+      "programName": "Plastic Recycling",
+      "description": "Collect and recycle plastic products."
+    }
+  ]
+  ```
+- **204 No Content:** No programs found
 
-Request Headers:
+---
 
-Content-Type: application/json
-Path Parameters:
+### 8. Retrieve a Single Recycling Program
 
-id (integer): ID of the recycling program
-Request Body:
+**HTTP Method:** `GET`
 
-json
+**Endpoint:** `/recycling/{id}`
+
+**Description:** Retrieve details of a single recycling program by its ID.
+
+**Request Headers:**
+- `Accept: application/json`
+
+**Path Parameters:**
+- `id` (integer): ID of the recycling program
+
+**Responses:**
+
+- **200 OK:**
+  ```json
+  {
+    "id": 1,
+    "programName": "Paper Recycling",
+    "description": "Collect and recycle paper products."
+  }
+  ```
+- **404 Not Found:** Program not found
+
+---
+
+### 9. Update a Recycling Program
+
+**HTTP Method:** `PUT`
+
+**Endpoint:** `/recycling/{id}`
+
+**Description:** Update the details of a recycling program.
+
+**Request Headers:**
+- `Content-Type: application/json`
+
+**Path Parameters:**
+- `id` (integer): ID of the recycling program
+
+**Request Body:**
+```json
 {
   "programName": "Updated Program Name",
   "description": "Updated Description"
 }
-Responses:
+```
 
-200 OK:
-json
-{
-  "id": 1,
-  "programName": "Updated Program Name",
-  "description": "Updated Description"
-}
-400 Bad Request: Invalid input
-404 Not Found: Program not found
-10. Delete a Recycling Program
-HTTP Method: DELETE
+**Responses:**
 
-Endpoint: /recycling/{id}
+- **200 OK:**
+  ```json
+  {
+    "id": 1,
+    "programName": "Updated Program Name",
+    "description": "Updated Description"
+  }
+  ```
+- **400 Bad Request:** Invalid input
+- **404 Not Found:** Program not found
 
-Description: Delete a recycling program by its ID.
+---
 
-Request Headers:
+### 10. Delete a Recycling Program
 
-Accept: application/json
-Path Parameters:
+**HTTP Method:** `DELETE`
 
-id (integer): ID of the recycling program
-Responses:
+**Endpoint:** `/recycling/{id}`
 
-204 No Content: Successfully deleted
-404 Not Found: Program not found
+**Description:** Delete a recycling program by its ID.
+
+**Request Headers:**
+- `Accept: application/json`
+
+**Path Parameters:**
+- `id` (integer): ID of the recycling program
+
+**Responses:**
+
+- **204 No Content:** Successfully deleted
+- **404 Not Found:** Program not found
+
